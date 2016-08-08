@@ -27,7 +27,6 @@
           <groupId>edu.globant.training</groupId>
           <artifactId>server-eh1</artifactId>
           <version>${project.version}</version>
-          <classifier>classes</classifier>
       </dependency>
 
       <!-- This is an EJB client application, so we need the tools to communicate with the server -->
@@ -79,13 +78,7 @@
                                   <goal>java</goal>
                               </goals>
                               <configuration>
-                                  <mainClass>org.jpwh.stateless.AuctionClient</mainClass>
-                                  <systemProperties>
-                                      <property>
-                                          <key>java.util.logging.config.file</key>
-                                          <value>shared/src/main/resources/logging.properties</value>
-                                      </property>
-                                  </systemProperties>
+                                  <mainClass>edu.globant.hibernate.client.AuctionClient</mainClass>
                               </configuration>
                           </execution>
                       </executions>

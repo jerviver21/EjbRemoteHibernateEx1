@@ -8,7 +8,7 @@
     <persistence-unit name="Example1PU">
 
         <!-- This is the "built-in" JBoss AS datasource -->
-        <jta-data-source>java:jboss/datasources/ExampleDS</jta-data-source>
+        <jta-data-source>java:jboss/datasources/Hex1DS</jta-data-source>
 
         <properties>
             <!-- We have customized the Hibernate SQL dialect -->

@@ -91,7 +91,7 @@
                         <!-- Force redeployment if already deployed -->
                         <force>true</force>
                         <!-- No version number -->
-                        <filename>${project.artifactId}-${project.version}.jar</filename>
+                        <filename>${project.artifactId}-${project.version}.war</filename>
                     </configuration>
                 </plugin>
 
@@ -176,6 +176,12 @@
                 <module>model-eh1</module>
                 <module>server-eh1</module>
                 <module>client-eh1</module>
+            </modules>
+        </profile>
+        <profile>
+            <id>model-eh1</id>
+            <modules>
+                <module>model-eh1</module>
             </modules>
         </profile>
     </profiles>

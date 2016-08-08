@@ -7,7 +7,7 @@
   </parent>
   
   <artifactId>server-eh1</artifactId>
-  <packaging>jar</packaging>
+  <packaging>war</packaging>
 
   <!-- ##################################################################################################### -->
 

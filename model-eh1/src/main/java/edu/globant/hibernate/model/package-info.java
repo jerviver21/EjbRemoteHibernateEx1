@@ -22,7 +22,7 @@
 	),
 	@org.hibernate.annotations.NamedQuery(
 			name = "getItemBidSummaries",
-			query =   "select new org.jpwh.model.ItemBidSummary( "
+			query =   "select new edu.globant.hibernate.model.ItemBidSummary( "
 					+ "	i.id, i.name, i.auctionEnd, max(b.amount)) "
 					+ "from Bid b "
 					+ "right outer join b.item i "

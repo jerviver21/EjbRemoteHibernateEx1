@@ -39,6 +39,8 @@ public class AuctionClient {
 	public static void main(String[] args) throws Exception {
 		LogManager.getLogManager().readConfiguration(
 	            new FileInputStream(new File("/home/developer/Servers/conf/logging.properties")));
+		AuctionClient client = new AuctionClient();
+        client.startDialog();
 	}
 	
 	@SuppressWarnings("InfiniteRecursion")
@@ -162,15 +164,17 @@ public class AuctionClient {
 	protected static <T> T lookupService(Class<T> remoteInterface, Class<? extends T> bean) throws NamingException {
         // This hurts... but at least some of it is standardized...
         final Hashtable jndiProperties = new Hashtable();
+        jndiProperties.put("jboss.naming.client.ejb.context", true);
         jndiProperties.put(Context.URL_PKG_PREFIXES, "org.jboss.ejb.client.naming");
         Context context = new InitialContext(jndiProperties);
 
         String appName = ""; // Empty with WAR deployment
-        String moduleName = "server-eh1"; // The name of the WAR (makes sense, right?)
+        String moduleName = "server-eh1-0.0.1-SNAPSHOT"; // The name of the WAR (makes sense, right?)
         String distinctName = ""; // Unless you do more configuration magic, this is always empty
         String beanName = bean.getSimpleName(); // That's the implementation of...
         String viewClassName = remoteInterface.getName(); // ... this interface
         String ejbName = "ejb:" + appName + "/" + moduleName + "/" + distinctName + "/" + beanName + "!" + viewClassName;
+        System.out.println("---> "+ejbName);
         return (T) context.lookup(ejbName);
     }
 }
