@@ -1,0 +1,14 @@
+client-eh1/target/classes
+client-eh1/target/generated-sources
+client-eh1/target/surefire
+server-eh1/target/classes
+server-eh1/target/generated-sources
+server-eh1/target/maven-archiver
+server-eh1/target/server-eh1-0.0.1-SNAPSHOT
+server-eh1/target/server-eh1-0.0.1-SNAPSHOT.war
+server-eh1/target/surefire
+model-eh1/target/classes
+model-eh1/target/generated-sources
+model-eh1/target/maven-archiver
+model-eh1/target/model-eh1-0.0.1-SNAPSHOT.jar
+model-eh1/target/surefire
