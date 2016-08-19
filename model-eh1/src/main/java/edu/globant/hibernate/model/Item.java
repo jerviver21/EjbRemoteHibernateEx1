@@ -1,5 +1,6 @@
 package edu.globant.hibernate.model;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -20,15 +21,19 @@ import javax.validation.constraints.Size;
 import edu.globant.hibernate.common.Constants;
 
 @Entity
-public class Item {
+public class Item  implements Serializable{
+	
+	/*Optimistic Concurrency Control is implemented, first commit wins, that means that
+	 *if another Thread is modifing the same entity, and commits before the actual thread
+	 *When the actual Thread tries to commit it will throw an (OptimisticLockException) saying 
+	 *that other Thread already have modified the entity */
+	@NotNull
+    @Version
+    protected long version;
 
     @Id
     @GeneratedValue(generator = Constants.ID_GENERATOR)
     protected Long id;
-
-    @NotNull
-    @Version
-    protected long version;
 
     @NotNull
     @Size(

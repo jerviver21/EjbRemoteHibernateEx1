@@ -54,7 +54,13 @@ public abstract class GenericDAOImpl<T, ID extends Serializable>
         em.remove(instance);
     }
 
+    
     public void checkVersion(T entity, boolean forceUpdate) {
+    	/*
+    	 * OPTIMISTIC_FORCE_INCREMENT force the entity Item to increment, in order to avoid to concurrent
+    	 * bid for the same Item be sucessful, the first commit wins, that means that the second commit will
+    	 * throw an OptimisticLockException 
+    	 * */
         em.lock(
             entity,
             forceUpdate
